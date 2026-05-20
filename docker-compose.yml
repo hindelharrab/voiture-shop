@@ -2,23 +2,6 @@ version: "3.8"
 
 services:
 
-  # Base de données PostgreSQL
-  postgresdb:
-    container_name: postgresdb
-    image: postgres
-    ports:
-      - "5433:5432"
-    environment:
-      POSTGRES_DB: miola
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-    volumes:
-      - pgdata:/var/lib/postgresql
-    networks:
-      - spring-net
-    restart: always
-
-  # Backend Spring Boot
   springboot-app:
     build:
       context: ./backend
@@ -32,12 +15,26 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_PORT: 5432
+      GROQ_API_KEY: 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
     depends_on:
       - postgresdb
     networks:
       - spring-net
 
-  # Frontend React
+  postgresdb:
+    container_name: postgresdb
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: miola
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    volumes:
+      - pgdata:/var/lib/postgresql
+    networks:
+      - spring-net
+
   frontend:
     build:
       context: ./frontend
