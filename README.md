@@ -4,10 +4,11 @@
 - Docker
 - Docker Compose
 
-## Lancer l'application
-
-### Une seule commande
-docker-compose up -d --build
+## Lancer l'application: 
+Pour lancer l'application, une seule commande suffit :
+- git clone https://github.com/hindelharrab/voiture-shop.git
+- cd voiture-shop
+- docker-compose up -d --build
 
 ### Attendre 2-3 minutes puis accéder à :
 http://localhost:5174/login
