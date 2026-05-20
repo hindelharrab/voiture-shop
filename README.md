@@ -10,7 +10,7 @@
 docker-compose up -d --build
 
 ### Attendre 2-3 minutes puis accéder à :
-- Frontend : http://localhost:5174/login
+http://localhost:5174/login
 
 ### Identifiants
 - Username : admin
