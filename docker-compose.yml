@@ -15,7 +15,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_PORT: 5432
-      GROQ_API_KEY: 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
+      GROQ_API_KEY: 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
     depends_on:
       - postgresdb
     networks:
