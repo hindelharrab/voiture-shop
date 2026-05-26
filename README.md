@@ -1,5 +1,7 @@
 # Voiture Shop — Full Stack
 
+# Pour Docker
+
 ## Prérequis
 - Docker
 - Docker Compose
@@ -38,3 +40,30 @@ Le système envoie une question à l'IA :
 
 L'IA analyse et retourne un conseil personnalisé en français.
 
+# Pour Kubernetes
+
+## Prérequis
+- Docker installé
+- Minikube installé
+- kubectl installé
+  
+### 1. Démarrer Minikube
+minikube start --driver=docker
+
+### 2. Connecter Docker
+minikube docker-env | Invoke-Expression
+
+### 3. Rebuilder les images
+docker build -t springboot-app:1.0 ./backend
+docker build -t voiture-frontend:1.0 ./frontend
+
+### 4. Déployer
+kubectl apply -f k8s/postgres-configMap.yaml
+kubectl apply -f k8s/postgres-secrets.yaml
+kubectl apply -f k8s/db-deployment.yaml
+kubectl apply -f k8s/app-deployment.yaml
+kubectl apply -f k8s/frontend-deployment.yaml
+
+### 5. Accéder
+minikube service frontend-svc --url
+minikube service springboot-app-svc --url
