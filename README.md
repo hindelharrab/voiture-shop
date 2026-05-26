@@ -54,16 +54,16 @@ minikube start --driver=docker
 minikube docker-env | Invoke-Expression
 
 ### 3. Rebuilder les images
-docker build -t springboot-app:1.0 ./backend
-docker build -t voiture-frontend:1.0 ./frontend
+- docker build -t springboot-app:1.0 ./backend
+- docker build -t voiture-frontend:1.0 ./frontend
 
 ### 4. Déployer
-kubectl apply -f k8s/postgres-configMap.yaml
-kubectl apply -f k8s/postgres-secrets.yaml
-kubectl apply -f k8s/db-deployment.yaml
-kubectl apply -f k8s/app-deployment.yaml
-kubectl apply -f k8s/frontend-deployment.yaml
+- kubectl apply -f k8s/postgres-configMap.yaml
+- kubectl apply -f k8s/postgres-secrets.yaml
+- kubectl apply -f k8s/db-deployment.yaml
+- kubectl apply -f k8s/app-deployment.yaml
+- kubectl apply -f k8s/frontend-deployment.yaml
 
 ### 5. Accéder
-minikube service frontend-svc --url
-minikube service springboot-app-svc --url
+- minikube service frontend-svc --url
+- minikube service springboot-app-svc --url
